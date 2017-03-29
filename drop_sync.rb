@@ -1,7 +1,4 @@
 require File.expand_path('../dropbox-sdk-ruby-1.6.4/lib/dropbox_sdk', __FILE__)
-require 'pp'
-require 'shellwords'
-require 'open-uri'
 
 class DropSync
 
