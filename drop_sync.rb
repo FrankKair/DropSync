@@ -1,4 +1,5 @@
 require File.expand_path('../dropbox-sdk-ruby-1.6.4/lib/dropbox_sdk', __FILE__)
+require './mecha.rb'
 
 class DropSync
 
@@ -24,7 +25,7 @@ class DropSync
 
     def download(filename)
         url = get_url(filename)
-        system("open", url)
+        Mecha.automatic_download(url)
         logout
     end
 
