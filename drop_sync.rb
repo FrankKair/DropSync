@@ -23,6 +23,7 @@ class DropSync
         download(filename)
     end
 
+    private
     def logout
         @client = nil
         puts "You are logged out."
