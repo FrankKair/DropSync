@@ -23,13 +23,17 @@ class DropSync
     end
 
     def download(filename)
+        url = get_url(filename)
+        system("open", url)
+        logout
+    end
+
+    def get_url(filename)
         resp = @client.search('/',clean_up(filename))
         for item in resp
             path = item['path']
         end
-        url = @client.shares(path)['url']
-        system("open", url)
-        logout
+        @client.shares(path)['url']
     end
 
     def logout
