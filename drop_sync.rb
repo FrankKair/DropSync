@@ -3,9 +3,15 @@ require File.expand_path('../dropbox-sdk-ruby-1.6.4/lib/dropbox_sdk', __FILE__)
 class DropSync
 
     def initialize(app_key, app_secret)
-        @client = nil
+        login(app_key, app_secret)
+    end
 
-        # Login
+    def start(filename)
+        download(filename)
+    end
+
+    private
+    def login(app_key, app_secret)
         web_auth = DropboxOAuth2FlowNoRedirect.new(app_key, app_secret)
         authorize_url = web_auth.start()
         system("open", authorize_url)
@@ -14,20 +20,6 @@ class DropSync
         auth_code = STDIN.gets.strip
         access_token, user_id = web_auth.finish(auth_code)
         @client = DropboxClient.new(access_token)
-        puts "You are logged in.  Your access token is #{access_token}."
-    end
-
-    def start
-        puts "Enter filename/directory"
-        filename = STDIN.gets.strip
-        download(filename)
-    end
-
-    private
-    def logout
-        @client = nil
-        puts "You are logged out."
-        exit(0)
     end
 
     def download(filename)
@@ -38,6 +30,11 @@ class DropSync
         url = @client.shares(path)['url']
         system("open", url)
         logout
+    end
+
+    def logout
+        @client = nil
+        exit(0)
     end
 
     def clean_up(str)
