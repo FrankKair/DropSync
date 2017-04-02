@@ -30,7 +30,7 @@ class DropSync
     end
 
     def get_url(filename)
-        resp = @client.search('/',clean_up(filename))
+        resp = @client.search('/', clean_up(filename))
         for item in resp
             path = item['path']
         end
