@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 require './drop_sync.rb'
 
-unless ARGV.count == 3
-	puts "Enter your app_key, app_secret and filename"
+unless ARGV.count == 2
+	puts "Enter your access token and filename"
 	raise "Wrong input arguments"
 end
 
-app_key, app_secret, filename = ARGV[0], ARGV[1], ARGV[2]
+access_token, filename = ARGV[0], ARGV[1]
 
-drop = DropSync.new(app_key, app_secret)
-drop.start(filename)
+dropSync = DropSync.new(access_token)
+dropSync.download(filename)
