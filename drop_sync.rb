@@ -4,7 +4,7 @@ require './mecha.rb'
 class DropSync
 
     def initialize(access_token)
-        login(access_token)
+        @client = DropboxClient.new(access_token)
     end
 
     def download(filename)
@@ -14,10 +14,6 @@ class DropSync
     end
 
     private
-    def login(access_token)
-        @client = DropboxClient.new(access_token)
-    end
-
     def get_url(filename)
         resp = @client.search('/', clean_up(filename))
         for item in resp
