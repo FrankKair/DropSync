@@ -3,30 +3,19 @@ require './mecha.rb'
 
 class DropSync
 
-    def initialize(app_key, app_secret)
-        login(app_key, app_secret)
-    end
-
-    def start(filename)
-        download(filename)
-    end
-
-    private
-    def login(app_key, app_secret)
-        web_auth = DropboxOAuth2FlowNoRedirect.new(app_key, app_secret)
-        authorize_url = web_auth.start()
-        system("open", authorize_url)
-        print "Enter the authorization code here: "
-        STDOUT.flush
-        auth_code = STDIN.gets.strip
-        access_token, user_id = web_auth.finish(auth_code)
-        @client = DropboxClient.new(access_token)
+    def initialize(access_token)
+        login(access_token)
     end
 
     def download(filename)
-        url = get_url(filename)
-        Mecha.automatic_download(url)
-        logout
+      url = get_url(filename)
+      Mecha.automatic_download(url)
+      logout
+    end
+
+    private
+    def login(access_token)
+        @client = DropboxClient.new(access_token)
     end
 
     def get_url(filename)
