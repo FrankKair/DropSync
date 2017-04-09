@@ -8,9 +8,9 @@ class DropSync
     end
 
     def download(filename)
-      url = get_url(filename)
-      Mecha.automatic_download(url)
-      logout
+        url = get_url(filename)
+        Mecha.automatic_download(url)
+        logout
     end
 
     private
