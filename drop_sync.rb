@@ -1,37 +1,12 @@
-require 'dropbox_sdk'
-require './mecha.rb'
+#!/usr/bin/env ruby
+require './drop_sync_engine.rb'
 
-class DropSync
-
-    def initialize(access_token)
-        puts '--- DropSync ---'
-        @client = DropboxClient.new(access_token)
-    end
-
-    def download(filename)
-        puts "Searching for #{filename}"
-        url = get_url(filename)
-        puts 'Downloading file'
-        Mecha.automatic_download(url)
-        logout
-    end
-
-    private
-    def get_url(filename)
-        resp = @client.search('/', clean_up(filename))
-        for item in resp
-            path = item['path']
-        end
-        @client.shares(path)['url']
-    end
-
-    def logout
-        @client = nil
-        exit(0)
-    end
-
-    def clean_up(str)
-        return str.gsub(/^\/+/, '') if str
-        str
-    end
+unless ARGV.count == 2
+	puts "Enter your access token and filename"
+	raise "Wrong input arguments"
 end
+
+access_token, filename = ARGV[0], ARGV[1]
+
+dropSync = DropSyncEngine.new(access_token)
+dropSync.download(filename)
