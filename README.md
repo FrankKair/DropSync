@@ -14,6 +14,6 @@ That's it :)
 
 1) Get the file size to check download completion when using this script coupled with another services.
 
-2) Use a "phantom" navigator in order not to open a browser to download the file.
+2) Use a headless navigator in order not to open a browser to download the file.
 
-3) Print progress logs.
+3) Error handling and tests.
