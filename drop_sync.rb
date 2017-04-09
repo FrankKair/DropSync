@@ -1,4 +1,4 @@
-require File.expand_path('../dropbox-sdk-ruby-1.6.4/lib/dropbox_sdk', __FILE__)
+require 'dropbox_sdk'
 require './mecha.rb'
 
 class DropSync
