@@ -5,15 +5,16 @@ A simple Dropbox client to download files or folders.
 
 ## Usage
 
-On your terminal, call `./drop_sync_run` passing as argument your access token (found at [Dropbox Developers](https://www.dropbox.com/developers)) and the name of the file you want to download.
+On your terminal, call:
+
+`./dropsync access_token filename` 
+
+The access token can be found at [Dropbox Developers](https://www.dropbox.com/developers).
 
 That's it :)
 
 
 ## Next steps
 
-1) Get the file size to check download completion when using this script coupled with another services.
-
-2) Use a headless navigator in order not to open a browser to download the file.
-
-3) Error handling and tests.
+1) Error handling
+2) Tests
