@@ -9,10 +9,11 @@ class DropSyncEngine
     end
 
     def download(filename)
-        puts "Searching for #{filename}"
+        puts "> Searching for #{filename}"
         url = get_url(filename)
-        puts 'Downloading file'
-        Mecha.automatic_download(url)
+        puts '> Downloading file'
+        Mecha.automatic_download(filename, url)
+        puts '> Download finished!'
         logout
     end
 
