@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require './drop_sync_engine.rb'
+require './dropsync_engine.rb'
 
 unless ARGV.count == 2
 	puts "Enter your access token and filename"
