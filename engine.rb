@@ -1,7 +1,7 @@
 require 'dropbox_sdk'
 require './mecha.rb'
 
-class DropSyncEngine
+class Engine
 
     def initialize(access_token)
         puts '--- DropSync ---'
