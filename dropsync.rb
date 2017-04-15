@@ -8,5 +8,5 @@ end
 
 access_token, filename = ARGV[0], ARGV[1]
 
-dropSync = Engine.new(access_token)
-dropSync.download(filename)
+drop_sync = Engine.new(access_token)
+drop_sync.download(filename)

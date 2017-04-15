@@ -35,4 +35,5 @@ class Engine
         return str.gsub(/^\/+/, '') if str
         str
     end
+
 end

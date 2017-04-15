@@ -8,11 +8,6 @@ class Mecha
       agent.user_agent_alias = 'Mac Safari'
     end
 
-    # get link
-    # create path
-    # download
-
-
     page = agent.get(url)
     link = page.uri.to_s.gsub('dl=0', 'dl=1')
     download_path = "#{File.expand_path('~')}/Downloads"
@@ -23,6 +18,5 @@ class Mecha
     system("unzip #{download_path}/#{filename}/#{filename}.zip > /dev/null 2>&1")
     system("rmdir __MACOSX | rm #{filename}.zip")
   end
-
 
 end
