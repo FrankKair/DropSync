@@ -1,5 +1,5 @@
-# !/usr/bin/env ruby
-require 'dropsync'
+#!/usr/bin/env ruby
+require './dropsync_engine.rb'
 
 unless ARGV.count == 2
 	puts "Enter your access token and filename"
@@ -8,5 +8,5 @@ end
 
 access_token, filename = ARGV[0], ARGV[1]
 
-dropSync = DropSync::Engine.new(access_token)
+dropSync = DropSyncEngine.new(access_token)
 dropSync.download(filename)
