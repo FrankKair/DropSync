@@ -20,7 +20,7 @@ class Mecha
     FileUtils.mkdir(filename)
     FileUtils.cd(filename)
     system("curl -L -s -o #{download_path}/#{filename}/#{filename}.zip #{link}")
-    system("unzip #{download_path}/#{filename}/#{filename}.zip")
+    system("unzip #{download_path}/#{filename}/#{filename}.zip > /dev/null 2>&1")
     system("rmdir __MACOSX | rm #{filename}.zip")
   end
 
