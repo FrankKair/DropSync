@@ -4,42 +4,25 @@ A simple Dropbox client to download files or folders.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'DropSync'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install DropSync
+    $ gem install DropSync --pre
 
 ## Usage
 
 On your terminal, call:
 
-`./dropsync access_token filename`
+    $ dropsync access_token filename
 
 The access token can be found at [Dropbox Developers](https://www.dropbox.com/developers).
 
 That's it :)
 
-## Development
+## Developing and Contributing
 
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+To install this gem onto your local machine, run `bundle exec rake install`.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+Bug reports and pull requests are welcome!
 
-## Contributing
+## Next steps
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/DropSync.
-
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
+1) Error handling
+2) Tests
