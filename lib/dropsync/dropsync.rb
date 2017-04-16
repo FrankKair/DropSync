@@ -1,6 +1,5 @@
 module DropSync
     class Engine
-
         def initialize(access_token)
             puts '--- DropSync ---'
             @client = DropboxClient.new(access_token)
