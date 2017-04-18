@@ -17,7 +17,8 @@ module DropSync
         FileUtils.cd(filename)
         system("curl -L -s -o #{download_path}/#{filename}/#{filename}.zip #{link}")
         system("unzip #{download_path}/#{filename}/#{filename}.zip > /dev/null 2>&1")
-        system("rmdir __MACOSX | rm #{filename}.zip")
+        FileUtils.rm_rf("__MACOSX")
+        system("rm #{filename}.zip")
     end
   end
 end
