@@ -1,10 +1,10 @@
 # DropSync
 
-A simple Dropbox client to download files or folders.
+A simple Dropbox client to download files and folders.
 
 ## Installation
 
-    $ gem install DropSync --pre
+    $ gem install DropSync
 
 ## Usage
 
