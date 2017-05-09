@@ -16,7 +16,10 @@ module DropSync
 
         private
         def get_url(filename)
-            resp = @client.search('/', clean_up(filename))
+            path = filename.split('/')[0...-1].inject { |t, c| "#{t}/#{c}" }
+            filename = filename.split('/').pop
+
+            resp = @client.search("/#{path}/", filename)
             for item in resp
                 path = item['path']
             end
@@ -28,9 +31,5 @@ module DropSync
             exit(0)
         end
 
-        def clean_up(str)
-            return str.gsub(/^\/+/, '') if str
-            str
-        end
     end
 end
