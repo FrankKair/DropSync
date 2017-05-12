@@ -20,7 +20,7 @@ module DropSync
             resp = @client.search('/', filename)
 
             for it in resp
-              if it['path'].include? path
+              if it['path'].downcase.include? path.downcase
                 item_path = it['path']
               end
             end
