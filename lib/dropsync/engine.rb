@@ -5,22 +5,27 @@ module DropSync
             @client = DropboxClient.new(access_token)
         end
 
-        def download(filename)
-            puts "> Searching for #{filename}"
-            url = get_url(filename)
-            puts '> Downloading file'
-            Mecha.automatic_download(filename, url)
+        def download(path)
+            puts "> Searching for #{path}"
+            url = get_url(path)
+            puts "> Downloading file"
+            Mecha.automatic_download(path, url)
             puts '> Download finished!'
             logout
         end
 
         private
-        def get_url(filename)
-            resp = @client.search('/', clean_up(filename))
-            for item in resp
-                path = item['path']
+        def get_url(path)
+            filename = path.split('/').pop
+            resp = @client.search('/', filename)
+
+            for it in resp
+              if it['path'].include? path
+                item_path = it['path']
+              end
             end
-            @client.shares(path)['url']
+
+            @client.shares(item_path)['url']
         end
 
         def logout
@@ -28,9 +33,5 @@ module DropSync
             exit(0)
         end
 
-        def clean_up(str)
-            return str.gsub(/^\/+/, '') if str
-            str
-        end
     end
 end
