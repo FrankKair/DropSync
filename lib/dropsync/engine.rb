@@ -14,6 +14,13 @@ module DropSync
             logout
         end
 
+        def upload(path_to_file)
+            filename = File.basename(path_to_file)
+            puts "> Uploading #{filename}"
+            @client.put_file(filename, open(path_to_file))
+            puts '> Upload finished!'
+        end
+
         private
         def get_url(path)
             filename = path.split('/').pop

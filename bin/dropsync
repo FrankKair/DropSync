@@ -1,12 +1,18 @@
 #!/usr/bin/env ruby
 require 'dropsync'
 
-unless ARGV.count == 2
-	puts "Enter your access token and filename"
+unless ARGV.count == 3
+	# TODO: Better description and --help
+	puts "> Enter your access token, command (download or upload) and filename"
 	raise "Wrong input arguments"
 end
 
-access_token, filename = ARGV[0], ARGV[1]
+access_token, command, filename = ARGV[0], ARGV[1], ARGV[2]
+dropsync = DropSync::Engine.new(access_token)
 
-drop_sync = DropSync::Engine.new(access_token)
-drop_sync.download(filename)
+case command
+	when 'download'
+		dropsync.download(filename)
+	when 'upload'
+		dropsync.upload(filename)
+	end
