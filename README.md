@@ -1,6 +1,6 @@
 # DropSync
 
-A simple Dropbox client to download files and folders.
+A simple Dropbox client to download/upload files and folders.
 
 ## Installation
 
@@ -8,21 +8,20 @@ A simple Dropbox client to download files and folders.
 
 ## Usage
 
-On your terminal, call:
+### Access token
 
-    $ dropsync access_token filename
+Your access token can be found at [Dropbox Developers](https://www.dropbox.com/developers).
 
-The access token can be found at [Dropbox Developers](https://www.dropbox.com/developers).
+### Download
 
-That's it :)
+This command downloads the given file to your ~/Downloads directory.
 
-## Developing and Contributing
+	$ dropsync access_token download filename
 
-To install this gem onto your local machine, run `bundle exec rake install`.
+### Upload
 
-Bug reports and pull requests are welcome!
+This command uploads the given file to the root directory of your Dropbox.
 
-## Next steps
+    $ dropsync access_token upload path_to_file
 
-1) Error handling
-2) Tests
+The path to file may be something like `~/Desktop/my_folder/text_file.txt`

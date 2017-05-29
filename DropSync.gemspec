@@ -10,7 +10,7 @@ Gem::Specification.new "dropsync", DropSync::VERSION do |spec|
   spec.email         = ["frankkair@gmail.com"]
 
   spec.summary       = "Simple Dropbox CLI"
-  spec.description   = "Simple Dropbox CLI to download files and folders."
+  spec.description   = "Simple Dropbox CLI to download/upload files and folders."
   spec.homepage      = "https://www.github.com/FrankKair/DropSync"
   spec.license       = "MIT"
 

@@ -1,16 +1,25 @@
 module DropSync
     class Engine
         def initialize(access_token)
-            puts '--- DropSync ---'
             @client = DropboxClient.new(access_token)
         end
 
         def download(path)
+            puts '--- DropSync ---'
             puts "> Searching for #{path}"
             url = get_url(path)
             puts "> Downloading file"
             Mecha.automatic_download(path, url)
             puts '> Download finished!'
+            logout
+        end
+
+        def upload(path_to_file)
+            puts '--- DropSync ---'
+            filename = File.basename(path_to_file)
+            puts "> Uploading #{filename}"
+            @client.put_file(filename, open(path_to_file))
+            puts '> Upload finished!'
             logout
         end
 

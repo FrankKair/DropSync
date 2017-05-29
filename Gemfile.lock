@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    DropSync (1.0.2)
+    DropSync (2.0.0)
       dropbox-sdk (= 1.6.5)
       mechanize (= 2.7.5)
 
