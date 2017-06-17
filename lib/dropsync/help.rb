@@ -22,6 +22,5 @@ module DropSync
 			puts '$ dropsync help'
 			puts '-------'
 		end
-
 	end
 end

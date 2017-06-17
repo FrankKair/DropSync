@@ -41,6 +41,5 @@ module DropSync
             @client = nil
             exit(0)
         end
-
     end
 end
