@@ -2,8 +2,9 @@ require 'mechanize'
 require 'fileutils'
 
 module DropSync
-    class Mecha
-        def self.automatic_download(path, url)
+    module Auto
+    	extend self
+        def download(path, url)
             agent = Mechanize.new do |agent|
                 agent.user_agent_alias = 'Mac Safari'
             end

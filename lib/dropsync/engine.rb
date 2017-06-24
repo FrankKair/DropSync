@@ -9,7 +9,7 @@ module DropSync
             puts "> Searching for #{path}"
             url = get_url(path)
             puts "> Downloading file"
-            Mecha.automatic_download(path, url)
+            Auto::download(path, url)
             puts '> Download finished!'
             logout
         end

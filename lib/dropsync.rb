@@ -1,5 +1,5 @@
 require 'dropbox_sdk'
 require 'dropsync/engine'
 require 'dropsync/help'
-require 'dropsync/mecha'
+require 'dropsync/auto'
 require 'dropsync/version'
