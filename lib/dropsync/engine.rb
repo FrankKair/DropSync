@@ -5,22 +5,22 @@ module DropSync
         end
 
         def download(path)
-        	puts '--- DropSync ---'
-        	puts "> Searching for #{path}"
-        	url = get_url(path)
-        	puts "> Downloading file"
-        	Auto::download(path, url)
-        	puts '> Download finished!'
-        	logout
+            puts '--- DropSync ---'
+            puts "> Searching for #{path}"
+            url = get_url(path)
+            puts '> Downloading file'
+            Auto::download(path, url)
+            puts '> Download finished'
+            logout
         end
 
-        def upload(path_to_file)
-        	puts '--- DropSync ---'
-        	filename = File.basename(path_to_file)
-        	puts "> Uploading #{filename}"
-        	@client.put_file(filename, open(path_to_file))
-        	puts '> Upload finished!'
-        	logout
+        def upload(path)
+            puts '--- DropSync ---'
+            filename = File.basename(path_to_file)
+            puts "> Uploading #{filename}"
+            @client.put_file(filename, open(path_to_file))
+            puts '> Upload finished'
+            logout
         end
 
         private
@@ -37,8 +37,8 @@ module DropSync
         end
 
         def logout
-        	@client = nil
-        	exit(0)
+            @client = nil
+            exit(0)
         end
     end
 end
