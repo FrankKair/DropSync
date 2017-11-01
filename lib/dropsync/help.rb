@@ -7,12 +7,12 @@ module DropSync
       puts '> To use DropSync you should provide an access_token, a command and a file, like so:'
       puts '$ dropsync access_token command file'
       puts "\n> Commands:"
-      puts "> download argument -> file/folder"
-      puts "> upload argument -> path to file"
+      puts '> download argument -> file/folder'
+      puts '> upload argument -> path to file'
       puts "\n> Examples:"
-      puts "$ dropsync access_token download my_dropbox_folder"
-      puts "$ dropsync access_token upload ~/Desktop/my_stuff/my_file.txt"
-      puts "-------"
+      puts '$ dropsync access_token download my_dropbox_folder'
+      puts '$ dropsync access_token upload ~/Desktop/my_stuff/my_file.txt'
+      puts '-------'
     end
 
     def invalid_command

@@ -9,12 +9,12 @@ module DropSync
       puts "> Searching for #{path}"
       url = get_url(path)
       puts '> Downloading file'
-      Auto::download(path, url)
+      Auto.download(path, url)
       puts '> Download finished'
       logout
     end
 
-    def upload(path)
+    def upload(_path)
       puts '--- DropSync ---'
       filename = File.basename(path_to_file)
       puts "> Uploading #{filename}"
@@ -24,13 +24,12 @@ module DropSync
     end
 
     private
+
     def get_url(path)
       filename = path.split('/').pop
       resp = @client.search('/', filename)
       for it in resp
-        if it['path'].downcase.include? path.downcase
-          item_path = it['path']
-        end
+        item_path = it['path'] if it['path'].downcase.include? path.downcase
       end
       @client.shares(item_path)['url']
     end

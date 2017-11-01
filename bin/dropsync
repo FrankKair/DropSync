@@ -6,14 +6,16 @@ unless ARGV.count == 3
   exit(0)
 end
 
-access_token, command, filename = ARGV[0], ARGV[1], ARGV[2]
+access_token = ARGV[0]
+command = ARGV[1]
+filename = ARGV[2]
 dropsync = DropSync::Engine.new(access_token)
 
 case command
-  when 'download'
-    dropsync.download(filename)
-  when 'upload'
-    dropsync.upload(filename)
-  else
-    DropSync::Help.invalid_command
+when 'download'
+  dropsync.download(filename)
+when 'upload'
+  dropsync.upload(filename)
+else
+  DropSync::Help.invalid_command
   end

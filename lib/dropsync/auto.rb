@@ -33,7 +33,7 @@ module DropSync
       system("unzip #{download_path}/#{path}/#{filename}.zip > /dev/null 2>&1")
 
       # Cleans directory
-      FileUtils.rm_rf("__MACOSX")
+      FileUtils.rm_rf('__MACOSX')
       FileUtils.rm_rf("#{filename}.zip")
     end
   end
