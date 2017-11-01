@@ -2,6 +2,13 @@
 
 A simple Dropbox client to download/upload files and folders.
 
+## Status
+
+The gem is currently not working because Dropbox discontinued the version 1 of the Ruby API.
+The v2 API does not support Ruby, but there are some people working on this issue.
+
+More info: https://blogs.dropbox.com/developers/2017/09/api-v1-shutdown-details/
+
 ## Installation
 
     $ gem install DropSync
