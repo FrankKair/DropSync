@@ -1,21 +1,17 @@
 #!/usr/bin/env ruby
 require 'dropsync'
 
-unless ARGV.count == 3
+if ARGV[0] == '--help'
+  DropSync::Help.show_message
+  exit(0)
+end
+
+unless ARGV.count == 2
   DropSync::Help.show_message
   exit(0)
 end
 
 access_token = ARGV[0]
-command = ARGV[1]
-filename = ARGV[2]
+filename = ARGV[1]
 dropsync = DropSync::Engine.new(access_token)
-
-case command
-when 'download'
-  dropsync.download(filename)
-when 'upload'
-  dropsync.upload(filename)
-else
-  DropSync::Help.invalid_command
-  end
+dropsync.download(filename)
