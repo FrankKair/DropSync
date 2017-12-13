@@ -1,4 +1,4 @@
-require 'dropbox_sdk'
+require 'dropbox_api'
 require 'dropsync/engine'
 require 'dropsync/help'
 require 'dropsync/auto'

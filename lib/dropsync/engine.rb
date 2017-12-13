@@ -1,7 +1,7 @@
 module DropSync
   class Engine
     def initialize(access_token)
-      @client = DropboxClient.new(access_token)
+      @client = DropboxApi::Client.new(access_token)
     end
 
     def download(path)
@@ -14,24 +14,30 @@ module DropSync
       logout
     end
 
-    def upload(_path)
-      puts '--- DropSync ---'
-      filename = File.basename(path_to_file)
-      puts "> Uploading #{filename}"
-      @client.put_file(filename, open(path_to_file))
-      puts '> Upload finished'
-      logout
-    end
-
     private
 
     def get_url(path)
       filename = path.split('/').pop
-      resp = @client.search('/', filename)
-      for it in resp
-        item_path = it['path'] if it['path'].downcase.include? path.downcase
+      resp = @client.search(filename, '')
+      item_path = ''
+      resp.matches.each do |res|
+        item_path = res.resource.path_lower if res.resource.path_lower.downcase.include?(path.downcase)
       end
-      @client.shares(item_path)['url']
+
+      if item_path.empty?
+        puts 'No folder/file path found. Exiting DropSync.'
+        exit(0)
+      end
+
+      # Check if there's a shared link already
+      links = @client.list_shared_links.links
+      links.each do |link|
+        return link.url if link.path_lower.include?(item_path)
+      end
+
+      # Creates new shared link
+      link = @client.create_shared_link_with_settings(item_path)
+      link.url
     end
 
     def logout
