@@ -24,7 +24,7 @@ GEM
       mime-types (>= 1.17.2)
       net-http-digest_auth (~> 1.1, >= 1.1.1)
       net-http-persistent (~> 2.5, >= 2.5.2)
-      nokogiri (~> 1.6)
+      nokogiri (~> 1.8.2)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
     mime-types (3.1)

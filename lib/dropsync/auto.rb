@@ -3,7 +3,8 @@ require 'fileutils'
 
 module DropSync
   module Auto
-    extend self
+    module_function
+
     def download(path, url)
       agent = Mechanize.new do |agent|
         agent.user_agent_alias = 'Mac Safari'
@@ -19,7 +20,7 @@ module DropSync
       path.split('/').each do |d|
         begin
           FileUtils.mkdir(d)
-        rescue
+        rescue StandardError
           puts "> Directory '#{d}' already exists"
           FileUtils.rm_rf(d)
           FileUtils.mkdir(d)

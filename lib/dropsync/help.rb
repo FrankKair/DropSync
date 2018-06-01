@@ -1,6 +1,6 @@
 module DropSync
   module Help
-    extend self
+    module_function
 
     def show_message
       puts '--- DropSync ---'

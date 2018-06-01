@@ -1,6 +1,6 @@
 # DropSync
 
-A simple Dropbox client to download files and folders.
+A simple Dropbox client to download files and folders for macOS 📦
 
 ## Installation
 
