@@ -21,5 +21,5 @@ Gem::Specification.new 'dropsync', DropSync::VERSION do |spec|
   spec.add_development_dependency 'bundler', '~> 1.14'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_runtime_dependency 'dropbox_api', '= 0.1.10', '= 0.1.10'
-  spec.add_runtime_dependency 'mechanize', '= 2.7.6', '= 2.7.6'
+  spec.add_runtime_dependency 'mechanize', '= 2.7.5'
 end
